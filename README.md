@@ -156,5 +156,6 @@ A breif description of the functions are provided here. The description is breif
 
 _Please don't hesitate to reach out with bugs or typos in the code_.
 # References
-[1] Sarkar, S., & Fitzgerald, B. (2021). Use of kane’s method for multi-body dynamic modelling and control of spar-type floating offshore wind turbines. _Energies_, _14_(20), 6635.
+[1] Sarkar, S., & Fitzgerald, B. (2021). Use of kane’s method for multi-body dynamic modelling and control of spar-type floating offshore wind turbines. _Energies_, _14_(20), 6635.  
+
 [2] Sarkar, S., Chen, L., Fitzgerald, B., & Basu, B. (2020). Multi-resolution wavelet pitch controller for spar-type floating offshore wind turbines including wave-current interactions. _Journal of Sound and Vibration_, _470_, 115170.
