@@ -1,7 +1,7 @@
 % TCD Offshore Wind Turbine Code
 % Developed by Saptarshi Sarkar as part of his PhD project between 2017-2019
 
-clc; clear -globals;
+clc; clear -globals; clear;
 clear SystemMatrices BaselineControllers;
 addpath('./Wind_Dataset','./Wave_Dataset','./src') 
 
@@ -18,7 +18,7 @@ if libisloaded('MoorDyn') || libisloaded('MoorApiwin64')
 end
 
 % Read FAST input data files
-[Airfoils, Geometry] = ReadWindTurbineAeroDataInterp('rad');
+[Airfoils, Geometry] = ReadWindTurbineAeroData('rad');
 [Blade, Tower]       = ReadWindTurbineStructuralData();
 [ElastoDyn]          = ReadElastoDyn();
 [Servo]              = ServoDyn();
@@ -26,7 +26,7 @@ end
 % Create tower and blade structures
 Twr = CreateTwr(Tower,ElastoDyn); Bld = CreateBld(ElastoDyn,Geometry,Blade); Platform = CreatePlatform();
 Platform.Mooring     = 1;    % 1 for Moordyn, 2 for OpenMoor
-Platform.WaveLoads   = 1;    % 1 to calculate wave load on spar using Morisson's equation, 0 to not.
+Platform.WaveLoads   = 0;    % 1 to calculate wave load on spar using Morisson's equation, 0 to not.
 
 % DOFs available
 DOFsStr = {'Sg','Sw','Hv','R','P','Y','TFA1','TSS1','TFA2','TSS2','NacYaw','GeAz','DrTr','B1F1','B1E1','B1F2','B2F1','B2E1','B2F2','B3F1','B3E1','B3F2'};
@@ -57,7 +57,7 @@ end
 
 % Get the TurbSim generated wind field and grid
 [velocity, Wind.y, Wind.z, Wind.nz, Wind.ny, Wind.dz,...
-          Wind.dy, Wind.dt, Wind.zHub, Wind.z1, Wind.SummVars] = readBLgrid('1ETMC');
+          Wind.dy, Wind.dt, Wind.zHub, Wind.z1, Wind.SummVars] = readBLgrid('NTM_A_8mps');
 Wind.t_TurbSim = (0:1:size(velocity,1)-1)*Wind.dt;
 
 % for steady wind field, uncomment the next line
@@ -68,6 +68,7 @@ Wind.Velocity = griddedInterpolant(gv,velocity,'linear');
 
 WindNom.PittandPeters = true(0);  % Place 0 in the argument for FALSE or 1 for TRUE
 WindNom.PitchControl  = true(1);  % Place 0 in the argument for FALSE or 1 for TRUE
+WindNom.AeroElastic   = true(1);  % 1 to include aeroelastic effect in inplane direction, 0 to ignore 
 
 WindNom.y = Wind.y;
 WindNom.z = Wind.z;
@@ -96,7 +97,7 @@ end
 Controls0 = [Servo.VS_RtTq, ElastoDyn.BlPitch, reshape(phi, [1 3*Bld.nb])];
 
 t0  = 0;
-tf  = 1;
+tf  = 50;
 deltat = 0.0125;
 t = t0:deltat:tf;
 n = (tf-t0)/deltat;

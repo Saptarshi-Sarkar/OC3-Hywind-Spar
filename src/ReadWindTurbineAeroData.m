@@ -1,5 +1,5 @@
 
-function [Airfoils, Geometry] = ReadWindTurbineAeroDataInterp(angle)
+function [Airfoils, Geometry] = ReadWindTurbineAeroData(angle)
 % function required to be run before the BEM Simulink block can be used.
 % This script reads the FAST input files obtain the blade geometrical 
 % and aerodynamic properties.

@@ -1,4 +1,6 @@
 function [ AM ] = AddedMass( Platform )
+% Create the added mass matrix for the floating platmform, later added to
+% the inertia (mass) matrix
 global FLUIDDENSITY;
 CA = 0.969954;
 ndz         = length(Platform.StripDepths);

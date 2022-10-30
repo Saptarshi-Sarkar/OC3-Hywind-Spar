@@ -39,15 +39,15 @@ Blade.Data(:,4) = Blade.Data(:,4)*1.0456;
 
 Bld.mB1     = reshape(interp1(Blade.Data(:,1)*BldLen, Blade.Data(:,4), Bld.BldSec),1,1,Bld.nb); 
 
-Bld.k11_B1F = simps(Blade.Data(:,1)*BldLen, Blade.Data(:,5).*ddBlFlapMode1.*ddBlFlapMode1);
-Bld.k12_B1F = simps(Blade.Data(:,1)*BldLen, Blade.Data(:,5).*ddBlFlapMode1.*ddBlFlapMode2);
-Bld.k22_B1F = simps(Blade.Data(:,1)*BldLen, Blade.Data(:,5).*ddBlFlapMode2.*ddBlFlapMode2);
+Bld.k11_B1F = trapz(Blade.Data(:,1)*BldLen, Blade.Data(:,5).*ddBlFlapMode1.*ddBlFlapMode1);
+Bld.k12_B1F = trapz(Blade.Data(:,1)*BldLen, Blade.Data(:,5).*ddBlFlapMode1.*ddBlFlapMode2);
+Bld.k22_B1F = trapz(Blade.Data(:,1)*BldLen, Blade.Data(:,5).*ddBlFlapMode2.*ddBlFlapMode2);
 
-Bld.k11_B1E = simps(Blade.Data(:,1)*BldLen, Blade.Data(:,6).*ddBlEdgeMode1.*ddBlEdgeMode1);
+Bld.k11_B1E = trapz(Blade.Data(:,1)*BldLen, Blade.Data(:,6).*ddBlEdgeMode1.*ddBlEdgeMode1);
 
-m11_B1F = simps(Blade.Data(:,1)*BldLen, Blade.Data(:,4).*polyval(conv(Blade.FlapMode1,Blade.FlapMode1), Blade.Data(:,1)*BldLen));
-m22_B1F = simps(Blade.Data(:,1)*BldLen, Blade.Data(:,4).*polyval(conv(Blade.FlapMode2,Blade.FlapMode2), Blade.Data(:,1)*BldLen));
-m11_B1E = simps(Blade.Data(:,1)*BldLen, Blade.Data(:,4).*polyval(conv(Blade.EdgeMode1,Blade.EdgeMode1), Blade.Data(:,1)*BldLen));
+m11_B1F = trapz(Blade.Data(:,1)*BldLen, Blade.Data(:,4).*polyval(conv(Blade.FlapMode1,Blade.FlapMode1), Blade.Data(:,1)*BldLen));
+m22_B1F = trapz(Blade.Data(:,1)*BldLen, Blade.Data(:,4).*polyval(conv(Blade.FlapMode2,Blade.FlapMode2), Blade.Data(:,1)*BldLen));
+m11_B1E = trapz(Blade.Data(:,1)*BldLen, Blade.Data(:,4).*polyval(conv(Blade.EdgeMode1,Blade.EdgeMode1), Blade.Data(:,1)*BldLen));
 
 Bld.f1_B1F = sqrt(Bld.k11_B1F/m11_B1F)/2/pi;
 Bld.f2_B1F = sqrt(Bld.k22_B1F/m22_B1F)/2/pi;

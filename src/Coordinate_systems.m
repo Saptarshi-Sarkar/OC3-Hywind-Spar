@@ -1,4 +1,4 @@
-function [Z, A, B, C, E, J1, J2, J3, MB1, MB2, MB3] = Coordinate_systems(q_Nom, BlPitch, ElastoDyn, Twr, Bld)
+function [Z, A, D, C, E, J1, J2, J3, NB1, NB2, NB3, MB1, MB2, MB3] = Coordinate_systems(q_Nom, BlPitch, ElastoDyn, Twr, Bld)
 PreCone = ElastoDyn.PreCone;
 ShftTilt = ElastoDyn.ShftTilt;
 dO1_B1 = Bld.dO1_B1;

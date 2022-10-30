@@ -203,9 +203,9 @@ methods
                 obj.amplitude= sqrt(obj.spectrum) * sqrt(2*angular_frequency_interval);
 
                 % Get random Phase or load predefined random set.
-%                 obj.phase             = 2*pi*rand(obj.nFrequency,1);
-                loaded = load('phase.mat'); % For comparison.
-                obj.phase = loaded.phase;
+                obj.phase             = 2*pi*rand(n_frequency,1);
+%                 loaded = load('phase.mat'); % For comparison.
+%                 obj.phase = loaded.phase;
             end
 
         elseif strcmp(opt.wave_profile, 'load')

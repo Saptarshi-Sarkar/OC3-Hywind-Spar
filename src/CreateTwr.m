@@ -45,21 +45,21 @@ Twr.dO1_TSS = polyval(polyder(Tower.SSMode1),TwrFlexHt);
 Twr.dO2_TFA = polyval(polyder(Tower.FAMode2),TwrFlexHt);
 Twr.dO2_TSS = polyval(polyder(Tower.SSMode2),TwrFlexHt);
 
-Twr.mT      = Tower.Data(:,2); TwrMass = simps(Twr.TwrSec,Twr.mT);
+Twr.mT      = Tower.Data(:,2); TwrMass = trapz(Twr.TwrSec,Twr.mT);
 
-Twr.k11_TFA = simps(Twr.TwrSec,Tower.Data(:,3).*polyval(conv(ddFAMode1,ddFAMode1),Twr.TwrSec));           % when lower limit is zero, taking limits and evaluating 
-Twr.k12_TFA = simps(Twr.TwrSec,Tower.Data(:,3).*polyval(conv(ddFAMode1,ddFAMode2),Twr.TwrSec));           % the value at final point is same. Here two methods are used
-Twr.k11_TSS = simps(Twr.TwrSec,Tower.Data(:,4).*polyval(conv(ddSSMode1,ddSSMode1),Twr.TwrSec));           % to make the point
-Twr.k12_TSS = simps(Twr.TwrSec,Tower.Data(:,4).*polyval(conv(ddSSMode1,ddSSMode2),Twr.TwrSec));
-Twr.k21_TFA = simps(Twr.TwrSec,Tower.Data(:,3).*polyval(conv(ddFAMode2,ddFAMode1),Twr.TwrSec));
-Twr.k22_TFA = simps(Twr.TwrSec,Tower.Data(:,3).*polyval(conv(ddFAMode2,ddFAMode2),Twr.TwrSec));
-Twr.k21_TSS = simps(Twr.TwrSec,Tower.Data(:,4).*polyval(conv(ddSSMode2,ddSSMode1),Twr.TwrSec));
-Twr.k22_TSS = simps(Twr.TwrSec,Tower.Data(:,4).*polyval(conv(ddSSMode2,ddSSMode2),Twr.TwrSec));
+Twr.k11_TFA = trapz(Twr.TwrSec,Tower.Data(:,3).*polyval(conv(ddFAMode1,ddFAMode1),Twr.TwrSec));           % when lower limit is zero, taking limits and evaluating 
+Twr.k12_TFA = trapz(Twr.TwrSec,Tower.Data(:,3).*polyval(conv(ddFAMode1,ddFAMode2),Twr.TwrSec));           % the value at final point is same. Here two methods are used
+Twr.k11_TSS = trapz(Twr.TwrSec,Tower.Data(:,4).*polyval(conv(ddSSMode1,ddSSMode1),Twr.TwrSec));           % to make the point
+Twr.k12_TSS = trapz(Twr.TwrSec,Tower.Data(:,4).*polyval(conv(ddSSMode1,ddSSMode2),Twr.TwrSec));
+Twr.k21_TFA = trapz(Twr.TwrSec,Tower.Data(:,3).*polyval(conv(ddFAMode2,ddFAMode1),Twr.TwrSec));
+Twr.k22_TFA = trapz(Twr.TwrSec,Tower.Data(:,3).*polyval(conv(ddFAMode2,ddFAMode2),Twr.TwrSec));
+Twr.k21_TSS = trapz(Twr.TwrSec,Tower.Data(:,4).*polyval(conv(ddSSMode2,ddSSMode1),Twr.TwrSec));
+Twr.k22_TSS = trapz(Twr.TwrSec,Tower.Data(:,4).*polyval(conv(ddSSMode2,ddSSMode2),Twr.TwrSec));
 
-m11_TFA = simps(Twr.TwrSec,Twr.mT.*polyval(conv(Tower.FAMode1,Tower.FAMode1),Twr.TwrSec));
-m22_TFA = simps(Twr.TwrSec,Twr.mT.*polyval(conv(Tower.FAMode2,Tower.FAMode2),Twr.TwrSec));
-m11_TSS = simps(Twr.TwrSec,Twr.mT.*polyval(conv(Tower.SSMode1,Tower.SSMode1),Twr.TwrSec));
-m22_TSS = simps(Twr.TwrSec,Twr.mT.*polyval(conv(Tower.SSMode2,Tower.SSMode2),Twr.TwrSec));
+m11_TFA = trapz(Twr.TwrSec,Twr.mT.*polyval(conv(Tower.FAMode1,Tower.FAMode1),Twr.TwrSec));
+m22_TFA = trapz(Twr.TwrSec,Twr.mT.*polyval(conv(Tower.FAMode2,Tower.FAMode2),Twr.TwrSec));
+m11_TSS = trapz(Twr.TwrSec,Twr.mT.*polyval(conv(Tower.SSMode1,Tower.SSMode1),Twr.TwrSec));
+m22_TSS = trapz(Twr.TwrSec,Twr.mT.*polyval(conv(Tower.SSMode2,Tower.SSMode2),Twr.TwrSec));
 
 m_dummy_TFA1 = m11_TFA + ElastoDyn.HubMass + ElastoDyn.NacMass + 17740*3 ;
 m_dummy_TFA2 = m22_TFA + ElastoDyn.HubMass + ElastoDyn.NacMass + 17740*3 ;
