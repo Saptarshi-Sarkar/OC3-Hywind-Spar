@@ -186,12 +186,12 @@ These three functions provide three different options for applying coordinate tr
 
 _Like any set of codes, even after thorough verification, bugs may exist. If not bugs, may be possible room for improvement. In case you spot any, please don't hesitate to reach out_.
 # References
-[1] Sarkar, S., & Fitzgerald, B. (2021). Use of kane’s method for multi-body dynamic modelling and control of spar-type floating offshore wind turbines. _Energies_, _14_(20), 6635.  
+[1] Sarkar, S., & Fitzgerald, B. (2021). [Use of kane’s method for multi-body dynamic modelling and control of spar-type floating offshore wind turbines](https://www.mdpi.com/1996-1073/14/20/6635). _Energies_, _14_(20), 6635.  
 
-[2] Sarkar, S., Chen, L., Fitzgerald, B., & Basu, B. (2020). Multi-resolution wavelet pitch controller for spar-type floating offshore wind turbines including wave-current interactions. _Journal of Sound and Vibration_, _470_, 115170.  
+[2] Sarkar, S., Chen, L., Fitzgerald, B., & Basu, B. (2020). [Multi-resolution wavelet pitch controller for spar-type floating offshore wind turbines including wave-current interactions](https://doi.org/10.1016/j.jsv.2020.115170). _Journal of Sound and Vibration_, _470_, 115170.  
 
-[3] Sarkar, S. (2020). Individual blade pitch control strategies for spar-type floating offshore wind turbines. _Trinity College Dublin_.  
+[3] Sarkar, S. (2020). [Individual blade pitch control strategies for spar-type floating offshore wind turbines](http://hdl.handle.net/2262/92495). _Trinity College Dublin_.  
 
-[4] Jonkman, J. M. (2007). _Dynamics modeling and loads analysis of an offshore floating wind turbine_. University of Colorado at Boulder.
+[4] Jonkman, J. M. (2007). [_Dynamics modeling and loads analysis of an offshore floating wind turbine_](https://www.nrel.gov/docs/fy08osti/41958.pdf). University of Colorado at Boulder.
 
-[5] Ning, S. A. (2014). A simple solution method for the blade element momentum equations with guaranteed convergence. _Wind Energy_, _17_(9), 1327-1345.
+[5] Ning, S. A. (2014). [A simple solution method for the blade element momentum equations with guaranteed convergence](https://doi.org/10.1002/we.1636). _Wind Energy_, _17_(9), 1327-1345.

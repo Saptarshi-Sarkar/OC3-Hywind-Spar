@@ -3,3 +3,4 @@
 *.sum
 *.mat
 codegen/
+.prj
