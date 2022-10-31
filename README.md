@@ -9,7 +9,9 @@ Three steps to run the code.
 Use NREL's [TurbSim](https://www.nrel.gov/wind/nwtc/turbsim.html) tool to generate the desired 3D wind field. Please ensure that the rotor-swept area is entirely enclosed. Once generated, place the `*.sum` and `*.wnd` files in the `Wind_Dataset` folder. 
 
 ## Step 2 - Create a wave field using the `CreateWaveDataset.m` script
-In the folder `Wave_Dataset` find the MATLAB script `CreateWaveDataset.m`.  Use the script to create **regular wave** (sinusoidal wave) field or use the **PiersonMoskowitz** or **JONSWAP** spectrum. You can also include wave-current interaction in the generated wave field. For details on the wave-current interaction model refer to [2].
+Use the MATLAB script `CreateWaveDataset.m` to create the wave velocity field. The created wave field in placed in the `Wave_Dataset` folder by the script. Use the script to create **regular wave** (sinusoidal wave) field or use the **PiersonMoskowitz** or **JONSWAP** spectrum. You can also include wave-current interaction in the generated wave field. For details on the wave-current interaction model refer to [2].
+
+The `Wave` class has been created by [Lin Chen](https://github.com/chen-lin). You can download [OpenMoor](https://github.com/chen-lin/openmoor) from his page as well.
 
 ## Step 3 - Run the main simulation using the `OffshoreWindTurbine.m` script
 The MATLAB script `OffshoreWindTurbine.m` is used to run the simulations. The script is described briefly below.
@@ -161,6 +163,8 @@ Function to evaluate the wave loads on the floating platform using Morison's equ
 Nominal System Matrices mex function. Mex function is used to speed up execution.
 ## `ode4.m`
 Runge-Kutta fourth-order method for numerical integration. This is the main function that performs the time integration.
+## `readBLgrid.m`
+MATLAB function distributed by [NREL](https://github.com/OpenFAST/matlab-toolbox) used to read `TurbSim` generated 3D wind field in MATLAB.
 ## `ReadElastoDyn.m`
 Function to read the `./5MW_Baseline/NRELOffshrBsline5MW_OC3Hywind_ElastoDyn.dat` file.
 ## `ReadWindTurbineAeroData.m`

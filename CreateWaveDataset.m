@@ -27,7 +27,7 @@ TotDraft             = 120;
 Platform.nStrips     = 240;
 Platform.StripDepths = linspace(0,TotDraft,Platform.nStrips);
 
-t = 0:0.0125:50;
+t = 0:0.0125:20;
 
 % Create the dataset at heights = strip depths of the platform
 wave.create_dataset(t, [0 0], -Platform.StripDepths' )

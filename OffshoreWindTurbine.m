@@ -34,7 +34,7 @@ DOFsStr = {'Sg','Sw','Hv','R','P','Y','TFA1','TSS1','TFA2','TSS2','NacYaw','GeAz
 if Platform.WaveLoads == 1
     waveopt.wave_profile = 'load';
     waveopt.wave_file = 'WaveHs3_Tp11_Dir90_NoCur0_Tf50';
-    wave = Wave(waveopt);   % Define Parameters for TMDI
+    wave = Wave(waveopt);   
 else
     wave.wave_file = [];
 end
@@ -97,7 +97,7 @@ end
 Controls0 = [Servo.VS_RtTq, ElastoDyn.BlPitch, reshape(phi, [1 3*Bld.nb])];
 
 t0  = 0;
-tf  = 50;
+tf  = 5;
 deltat = 0.0125;
 t = t0:deltat:tf;
 n = (tf-t0)/deltat;
