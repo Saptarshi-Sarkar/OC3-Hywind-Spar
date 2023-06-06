@@ -1,6 +1,4 @@
 *.out
-*.wnd
-*.sum
 *.mat
 codegen/
 *.prj
